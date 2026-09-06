@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio de Inmuebles — Inventario</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="sheet">
+
+  <!-- Marco tipo plano, con acotaciones en las esquinas -->
+  <div class="corner corner-tl">01</div>
+  <div class="corner corner-tr" id="corner-count">— UDS</div>
+
+  <header class="masthead">
+    <div class="masthead-title">
+      <h1>Portafolio de Inmuebles</h1>
+      <p class="masthead-sub">Inventario en vivo, leído directamente desde Google Sheets</p>
+    </div>
+    <div class="status" id="status">
+      <span class="status-dot" id="status-dot"></span>
+      <span id="status-text">conectando…</span>
+    </div>
+  </header>
+
+  <section class="kpis" id="kpis">
+    <div class="kpi">
+      <span class="kpi-label">Inmuebles activos</span>
+      <span class="kpi-value" id="kpi-total">—</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-label">Valor total del portafolio</span>
+      <span class="kpi-value" id="kpi-valor">—</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-label">Precio promedio</span>
+      <span class="kpi-value" id="kpi-promedio">—</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-label">Área promedio</span>
+      <span class="kpi-value" id="kpi-area">—</span>
+    </div>
+  </section>
+
+  <section class="charts">
+    <div class="chart-card">
+      <h2>Por tipo de inmueble</h2>
+      <canvas id="chart-tipo"></canvas>
+    </div>
+    <div class="chart-card">
+      <h2>Venta vs. Arriendo</h2>
+      <canvas id="chart-servicio"></canvas>
+    </div>
+    <div class="chart-card chart-wide">
+      <h2>Inventario por barrio / zona <span class="chart-note">(top 10)</span></h2>
+      <canvas id="chart-barrio"></canvas>
+    </div>
+    <div class="chart-card chart-wide">
+      <h2>Distribución por rango de precio</h2>
+      <canvas id="chart-precio"></canvas>
+    </div>
+  </section>
+
+  <section class="table-section">
+    <div class="table-controls">
+      <input type="text" id="search" placeholder="Buscar por nombre, barrio, encargado…" />
+      <select id="filter-tipo"><option value="">Todos los tipos</option></select>
+      <select id="filter-barrio"><option value="">Todas las zonas</option></select>
+      <select id="filter-servicio"><option value="">Venta y Arriendo</option></select>
+      <span class="table-count" id="table-count"></span>
+    </div>
+    <div class="table-wrap">
+      <table id="tabla">
+        <thead>
+          <tr>
+            <th data-key="tipo">Tipo</th>
+            <th data-key="nombre">Nombre</th>
+            <th data-key="barrio">Barrio</th>
+            <th data-key="precio" class="num">Precio</th>
+            <th data-key="area" class="num">m²</th>
+            <th data-key="habitaciones" class="num">Hab</th>
+            <th data-key="banos" class="num">Baños</th>
+            <th data-key="piso" class="num">Piso</th>
+            <th data-key="estado">Estado</th>
+            <th data-key="encargado">Encargado</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Última actualización: <strong id="last-updated">—</strong></span>
+    <button id="btn-refresh">Actualizar ahora</button>
+  </footer>
+
+  <div class="corner corner-bl">FUENTE: GOOGLE SHEETS API</div>
+  <div class="corner corner-br" id="corner-scale">ESC. 1:1</div>
+</div>
+
+<div class="setup-overlay" id="setup-overlay">
+  <div class="setup-box">
+    <h2>Falta configurar el acceso a tu hoja</h2>
+    <p>Abre <code>js/config.js</code> y coloca tu API key de Google en <code>API_KEY</code>. Revisa el <code>README.md</code> para el paso a paso.</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

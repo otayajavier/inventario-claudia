@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────────────────────
 const CONFIG = {
   // Tomado de tu URL: docs.google.com/spreadsheets/d/ESTE_ID/edit
-  SPREADSHEET_ID: "AIzaSyD9dcqg2slJPnkawSjLnLpEVdhVvmmUGrA",
+  SPREADSHEET_ID: "180UEG3GExXiWr5VwaTQ7zMsPZuihOujym73dEijeyI4",
 
   // Tu API key de Google Cloud (Sheets API habilitada). Ver README.md.
   API_KEY: "AIzaSyD9dcqg2slJPnkawSjLnLpEVdhVvmmUGrA",

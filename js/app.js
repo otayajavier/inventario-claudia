@@ -54,7 +54,7 @@ function formatCOPShort(value) {
 // Carga de datos desde Google Sheets API
 // ─────────────────────────────────────────────────────────────
 async function fetchSheetData() {
-  if (!CONFIG.API_KEY || CONFIG.API_KEY === "AIzaSyD9dcqg2slJPnkawSjLnLpEVdhVvmmUGrA") {
+  if (!CONFIG.API_KEY || CONFIG.API_KEY === "PEGA_AQUI_TU_API_KEY") {
     document.getElementById("setup-overlay").classList.add("visible");
     setStatus("err", "falta configurar API key");
     return null;
